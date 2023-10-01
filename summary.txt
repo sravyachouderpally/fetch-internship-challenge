@@ -20,15 +20,24 @@ Disadvantages:
 
 3. What has been your favorite school/personal project thus far? What about it that challenged you?
 One of my favorite projects so far was the design and development of an algorithm for placing users in a highly available datacenter. This project presented a fascinating challenge because it required solving a complex problem while dealing with technology limitations.
+
 The primary challenge from the requirement was to implement a transaction locking mechanism. In a traditional relational database system, transaction locking is a well-established technique for ensuring data consistency when multiple transactions are executed concurrently. However, the database being used for the entire application was Cassandra, which does not support transaction locking due to its distributed nature and the NoSQL paradigm.
+
 To overcome this limitation and meet the project's requirements, I implemented a concept called "lightweight transactions" in Cassandra. Below is an explanation of how lightweight transactions work:
 
 Lightweight Transactions in Cassandra:
 Cassandra, being a distributed NoSQL database, cannot provide the same transaction guarantees as traditional relational databases. However, it offers a form of lightweight transactions to handle situations where strict consistency is required.
+
 In Cassandra, lightweight transactions are typically implemented using the IF clause in CQL (Cassandra Query Language) statements. When executing an INSERT, UPDATE, or DELETE statement with an IF clause, Cassandra performs the following steps:
+
 Read Phase: Cassandra reads the data from the specified row(s) to check if the specified conditions are met.
+
 Write Phase: If the conditions are met during the read phase, Cassandra proceeds to write the new data as part of the transaction.
+
 Commit Phase: The write operation is committed if and only if no other concurrent updates have occurred on the same data between the read and write phases.
+
 This process allows Cassandra to provide a limited form of transactional integrity. If another concurrent update occurs on the same data between the read and write phases, the transaction is aborted, and re tried with new version. This ensures that conflicting updates do not compromise data consistency.
+
 Implementing lightweight transactions in Cassandra for this project was challenging because it required a deep understanding of both the database's capabilities and the specific requirements of the placement algorithm. It also involved careful consideration of how to structure the CQL statements to achieve the desired consistency without compromising performance.
+
 Overall, working on this task was amazing, as it pushed the boundaries of working with a distributed database system and finding innovative solutions to meet the project's requirements. It stands out as my favorite project due to the technical challenges it had, and the valuable experience I gained from overcoming them.
