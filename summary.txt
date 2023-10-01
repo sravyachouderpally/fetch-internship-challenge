@@ -1,0 +1,34 @@
+1. Why did you choose the tools, libraries, and language you used for the coding exercise?
+I carefully selected the tools, libraries, and programming language for this coding exercise to leverage my expertise so that I can efficiently develop and test. Following are the tools I chose:
+* IntelliJ IDEA: I opted for IntelliJ IDEA as my integrated development environment (IDE) due to its exceptional support for Java development. It offers advanced code analysis, debugging, and refactoring capabilities that will enhance productivity. With over 4 years of experience at JP Morgan Chase, I have honed my skills using IntelliJ IDEA, making it the logical choice for this exercise.
+* Postman: For API testing, I chose Postman. It is an industry-standard tool known for its user-friendly interface and powerful features. I can efficiently test and document RESTful APIs using Postman, simplifying the development process and ensuring robust API functionality.
+* Command Prompt (CMD): It is a versatile command-line interface that I frequently use to run curl commands. 
+* Libraries:
+o Apache Commons: Apache Commons libraries offer a wealth of reusable Java components, simplifying common programming tasks. These libraries save development time and effort, allowing me to focus on core application logic.For example I have used String.trim() function to trim the input as the imput might contain whitespaces before or after the string. 
+o Spring Boot Starter Web: Spring Boot Starter Web is an essential component for building web services. It comes with an embedded web server (e.g., Tomcat) and Spring Web MVC, streamlining the development of web applications and APIs.
+o Language: Java
+* My decision to utilize these tools, libraries, and the Java programming language is rooted in their collective strength, reliability, and the strong experience I have gained over the past 4years at JP Morgan Chase. This combination allows me to efficiently design, develop, and test applications, ensuring high-quality results that meet the industry standards.
+
+2. What are the advantages and disadvantages of your solution? 
+Advantages:
+* Efficient Timestamp-Based Sorting: I used a Priority Queue (implemented as a min-heap) to manage transactions based on their timestamps which is an efficient approach. It ensures that transactions are processed in least timestamp order, which aligns with the exercise requirements. The time complexity of inserting and removing transactions from a priority queue is O(logN), which is efficient for maintaining a sorted order.
+* Optimized Data Structure Choice (Priority Queue): Priority Queue is a suitable choice for this scenario because it automatically maintains the order of transactions by their timestamps. This data structure choice simplifies the implementation and ensures that transactions are processed in the correct order without the need for manual sorting.
+* HashMap for Efficient Point Retrieval: The use of a HashMap to track points for each payer    provides O(1) time complexity for both inserting and retrieving points associated with a payer. This ensures efficient access to point balances for users, enhancing the overall performance of the solution.
+
+Disadvantages:
+* Limited to In-Memory Storage: The use of data structures like Priority Queue and HashMap implies that the solution stores data in memory. If there is a need to persist data for more than one user, this in-memory approach may become a limitation. In such cases, it is highly recommended to use a database.
+
+3. What has been your favorite school/personal project thus far? What about it that challenged you?
+One of my favorite projects so far was the design and development of an algorithm for placing users in a highly available datacenter. This project presented a fascinating challenge because it required solving a complex problem while dealing with technology limitations.
+The primary challenge from the requirement was to implement a transaction locking mechanism. In a traditional relational database system, transaction locking is a well-established technique for ensuring data consistency when multiple transactions are executed concurrently. However, the database being used for the entire application was Cassandra, which does not support transaction locking due to its distributed nature and the NoSQL paradigm.
+To overcome this limitation and meet the project's requirements, I implemented a concept called "lightweight transactions" in Cassandra. Below is an explanation of how lightweight transactions work:
+
+Lightweight Transactions in Cassandra:
+Cassandra, being a distributed NoSQL database, cannot provide the same transaction guarantees as traditional relational databases. However, it offers a form of lightweight transactions to handle situations where strict consistency is required.
+In Cassandra, lightweight transactions are typically implemented using the IF clause in CQL (Cassandra Query Language) statements. When executing an INSERT, UPDATE, or DELETE statement with an IF clause, Cassandra performs the following steps:
+Read Phase: Cassandra reads the data from the specified row(s) to check if the specified conditions are met.
+Write Phase: If the conditions are met during the read phase, Cassandra proceeds to write the new data as part of the transaction.
+Commit Phase: The write operation is committed if and only if no other concurrent updates have occurred on the same data between the read and write phases.
+This process allows Cassandra to provide a limited form of transactional integrity. If another concurrent update occurs on the same data between the read and write phases, the transaction is aborted, and re tried with new version. This ensures that conflicting updates do not compromise data consistency.
+Implementing lightweight transactions in Cassandra for this project was challenging because it required a deep understanding of both the database's capabilities and the specific requirements of the placement algorithm. It also involved careful consideration of how to structure the CQL statements to achieve the desired consistency without compromising performance.
+Overall, working on this task was amazing, as it pushed the boundaries of working with a distributed database system and finding innovative solutions to meet the project's requirements. It stands out as my favorite project due to the technical challenges it had, and the valuable experience I gained from overcoming them.
