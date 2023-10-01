@@ -77,11 +77,11 @@ curl -X GET -H "Content-Type: application/json" http://localhost:8000/account/ba
 - Run the `/add` POST call 5 times with different request body payloads. The URL is `http://localhost:8000/account/add`.
 - To add the payload, go to Body -> raw and change the type to JSON.
   - Example payloads:
-    - ```json { "payer": "DANNON", "points": 300, "timestamp": "2022-10-31T10:00:00Z" }```
-    - ```json { "payer": "UNILEVER", "points": 200, "timestamp": "2022-10-31T11:00:00Z" }```
-    - ```json { "payer": "DANNON", "points": -200, "timestamp": "2022-10-31T15:00:00Z" }```
-    - ```json { "payer": "MILLER COORS", "points": 10000, "timestamp": "2022-11-01T14:00:00Z" }```
-    - ```json { "payer": "DANNON", "points": 1000, "timestamp": "2022-11-02T14:00:00Z" }```
+    - `{ "payer": "DANNON", "points": 300, "timestamp": "2022-10-31T10:00:00Z" }`
+    - `{ "payer": "UNILEVER", "points": 200, "timestamp": "2022-10-31T11:00:00Z" }`
+    - `{ "payer": "DANNON", "points": -200, "timestamp": "2022-10-31T15:00:00Z" }`
+    - `{ "payer": "MILLER COORS", "points": 10000, "timestamp": "2022-11-01T14:00:00Z" }`
+    - `{ "payer": "DANNON", "points": 1000, "timestamp": "2022-11-02T14:00:00Z" }`
 
 #### Spend Points
 - Once the points are added to the account, run the `/spend` POST call to spend points.
