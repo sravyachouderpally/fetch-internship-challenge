@@ -7,15 +7,15 @@
     - Follow the on-screen instructions to install it on your computer.
 - Reference: [Video Tutorial](https://www.youtube.com/watch?v=viNG3VVnzFE) or [Tutorial](https://www.tutorialspoint.com/step-by-step-guide-to-install-intellij-idea)
 
-### 2. Setup JDK
+### 2. Setup JDK in Intellij
 - Download Oracle JDK from [Oracle's website](https://www.oracle.com/java/technologies/downloads).
 - Follow the installation instructions specific to your operating system.
-- Example: I downloaded Oracle JDK 21 for Windows 64-bit.
+- I downloaded Oracle JDK 21 for Windows 64-bit.
 
 ### 3. Clone the GitHub Repository
 - Open your web browser and go to the GitHub repository.
-- Click the "Download" button to download the project.
-- Replace "//git url" with the actual Git repository URL.
+- Click the "Download ZIP" button to download the  and export it.
+- https://github.com/sravyachouderpally/fetch-internship-challenge
 
 ### 4. Import the Downloaded Project in IntelliJ IDEA
 - Open IntelliJ IDEA.
