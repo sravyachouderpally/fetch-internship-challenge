@@ -1,0 +1,84 @@
+{
+	"info": {
+		"_postman_id": "311ce5d8-5c24-4f87-9ab3-80f592a3a2d6",
+		"name": "Account",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "30135389"
+	},
+	"item": [
+		{
+			"name": "Get Balance",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"host": true,
+					"user-agent": true,
+					"accept-encoding": true,
+					"accept": true,
+					"connection": true
+				},
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.7",
+						"type": "text",
+						"disabled": true
+					},
+					{
+						"key": "Host",
+						"value": "localhost:8000",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": "http://localhost:8000/account/balance",
+				"description": "Get User Balance"
+			},
+			"response": []
+		},
+		{
+			"name": "Add Points",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"payer\":\"DANNON\",\r\n    \"points\":1000,\r\n    \"timeStamp\":\"2022-11-02T15:00:00.00Z\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8000/account/add",
+				"description": "Add Payer Points"
+			},
+			"response": []
+		},
+		{
+			"name": "Spend Points",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"points\" : 5000\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8000/account/spend",
+				"description": "Spend points"
+			},
+			"response": []
+		}
+	]
+}
